@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container"  style="background:#fafafa">
+    <div class="row py-3 px-5">
+      <h3 align="center" class="mt-4">Update Student</h3>
+    <form action="/update/{{student[0]}}" method="POST">
+        <input type="hidden" value="{{student[0]}}" name="id">
+        <div class="mb-2">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" name="name" value="{{student[1]}}">
+          </div>
+          <div class="mb-2">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" value="{{student[2]}}">
+          </div>
+          <div class="mb-2">
+            <label for="phone" class="form-label">Phone</label>
+            <input type="tel" class="form-control" id="phone" name="phone" value="{{student[3]}}">
+          </div>
+          <div class="mb-2">
+            <label for="course" class="form-label">Course</label>
+            <select class="form-select" aria-label="Default select example" id="course" name="course">
+              {% if student[5] == 'MBA' %}
+                <option selected value="MBA">MBA</option>
+                <option value="MCA">MCA</option>
+              {% else %}
+                <option selected value="MCA">MCA</option>
+                <option value="MBA">MBA</option>
+              {% endif %}
+            </select>
+          </div>
+          <div class="mb-2">
+            <label for="rollnumber" class="form-label">Roll No.</label>
+            <input type="text" class="form-control" id="rollnumber" name="roll_no" value="{{student[4]}}">
+          </div>
+          <div class="mb-2">
+            <label for="year" class="form-label">Year</label>
+            <select class="form-select" aria-label="Default select example" id="year" name="year">
+              {% if student[6] == 1 %}
+                <option selected value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+              {% elif student[6] == 2 %}
+                <option selected value="2">2</option>
+                <option value="1">1</option>
+                <option value="3">3</option>
+              {% else %}
+                <option selected value="3">3</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+              {% endif %}
+            </select>
+          </div>
+          <div class=" mt-1 mb-2">
+              <button type="submit" class="btn btn-primary">Update</button>
+          </div>
+    </form>
+    </div>
+</div>
+{% endblock content %}

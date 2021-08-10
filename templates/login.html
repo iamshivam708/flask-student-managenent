@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% include "header.html" %}
+{% block content %}
+
+{% if msg %}
+<div class="container">
+<div class="alert alert-info alert-dismissible fade show" role="alert">
+   {{msg}}
+   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+</div>
+{% endif %}
+
+<div class="container mt-5" style="background:#90caf9;box-shadow:10px 10px 10px 10px #bbdefb">
+  <div class="row py-3 px-5">
+
+    <div class="col-sm-6 mt-3">
+        <h3 align="center" class="mt-4">Admin Login</h3>
+        <form action="/login" method="POST">
+        <div class="mb-2">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <div class="mb-2">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" name="password" required>
+        </div>
+        <div class=" mt-3 mb-2">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        </form>
+    </div>
+
+    <div class="col-sm-6 d-none d-sm-block">
+        <img src={{url_for('static', filename='login.jpg')}} width="100%"/>
+    </div>
+
+  </div>
+</div>
+{% endblock content %}

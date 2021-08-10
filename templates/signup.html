@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+{% include "header.html" %}
+{% block content %}
+
+{% if msg %}
+<div class="container">
+<div class="alert alert-info alert-dismissible fade show" role="alert">
+   {{msg}}
+   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+</div>
+{% endif %}
+
+<div class="container mt-3" style="background:#90caf9;box-shadow:10px 10px 10px 10px #bbdefb">
+  <div class="row py-3 px-5">
+
+    <div class="col-6">
+        <img src={{url_for('static', filename='signup.jpg')}} width="100%"/>
+    </div>
+
+    <div class="col-6">
+        <h3 align="center" class="mt-4">Sign-Up</h3>
+        <form action="/signup" method="POST">
+        <div class="mb-2">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+        <div class="mb-2">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <div class="mb-2">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" name="password" required>
+        </div>
+        <div class="mb-2">
+            <label for="cpassword" class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" id="cpassword" name="cpassword" required>
+        </div>
+        <div class=" mt-3 mb-2">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        </form>
+    </div>
+
+  </div>
+</div>
+{% endblock content %}
